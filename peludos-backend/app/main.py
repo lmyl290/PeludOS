@@ -27,7 +27,9 @@ app = FastAPI(
 # === CONFIGURACIÓN DE CORS ===
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4200"],  # Permite peticiones desde Angular
+    allow_origins=["http://localhost:4200",
+                   "http://68.211.136.57:8083",
+                   "http://68.211.136.57"],  # Permite peticiones desde Angular
     allow_credentials=True,
     allow_methods=["*"],  # Permite todos los métodos (GET, POST, PUT, DELETE, OPTIONS, etc.)
     allow_headers=["*"],  # Permite todas las cabeceras

@@ -14,7 +14,7 @@ import { AuthService } from '../../core/services/auth.service';
       <!-- Mitad Izquierda: Fotografía y Eslogan -->
       <div class="hidden lg:flex lg:w-1/2 relative bg-slate-900">
         <img 
-          src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80" 
+          src="https://unsplash.com" 
           alt="Cachorro Beagle" 
           class="w-full h-full object-cover"
         />
@@ -176,9 +176,21 @@ export class RegisterComponent {
   showPassword = false;
 
   onSubmit() {
-    this.auth.register({ full_name: this.fullName, email: this.email, password: this.password }).subscribe({
+    const payload = {
+      nombre_completo: this.fullName,
+      correo_electronico: this.email,
+      telefono: '',
+      direccion: '',
+      contrasena: this.password,
+      rol: 'cliente'
+    };
+
+    this.auth.register(payload).subscribe({
       next: () => this.router.navigate(['/login']),
-      error: () => this.error = 'No se pudo completar el registro.'
+      error: (err) => {
+        console.error('Error al registrar:', err);
+        this.error = err?.error?.detail || 'No se pudo completar el registro. Verifica tus datos.';
+      }
     });
   }
 
