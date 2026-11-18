@@ -168,11 +168,6 @@ import { UsuarioService } from '../../core/services/usuario.service';
               <h3 class="text-xl font-extrabold text-slate-950 mb-2 group-hover:text-[#9C27B0] transition">Recordatorios</h3>
               <p class="text-slate-700 text-sm">Crea alertas para vacunas, dosis de medicamentos y próximas citas.</p>
             </div>
-
-Alertas
-
-Recordatorios
-Crea alertas para vacunas, dosis de medicamentos y próximas citas.
 `
 })
 export class DashboardComponent implements OnInit {

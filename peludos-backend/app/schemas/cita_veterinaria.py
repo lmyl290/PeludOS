@@ -22,17 +22,17 @@ class CitaVeterinariaBase(BaseModel):
     fecha_cita: datetime
     motivo: str
 
-    @field_validator("fecha_cita")
-    @classmethod
-    def _fecha_cita_no_pasado(cls, valor: datetime) -> datetime:
-        return _validar_fecha_futura(valor)
-
 
 class CitaVeterinariaCreate(CitaVeterinariaBase):
     """Lo que recibe el cliente (dueño de la mascota) o un admin al agendar una cita."""
     id_mascota: int
     id_profesional: int
     id_veterinaria: int
+
+    @field_validator("fecha_cita")
+    @classmethod
+    def _fecha_cita_no_pasado(cls, valor: datetime) -> datetime:
+        return _validar_fecha_futura(valor)
 
 
 class CitaVeterinariaUpdate(BaseModel):
