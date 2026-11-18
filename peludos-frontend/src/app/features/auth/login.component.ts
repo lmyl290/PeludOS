@@ -9,10 +9,10 @@ import { AuthService } from '../../core/services/auth.service';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   template: `
-    <div class="min-h-screen flex bg-[#FFFBF5]">
+    <div class="min-h-screen flex bg-[#FAF8FF]">
       
       <!-- Mitad Izquierda: Fotografía y Eslogan (Oculto en celulares) -->
-      <div class="hidden lg:flex lg:w-1/2 relative bg-slate-900">
+      <div class="hidden lg:flex lg:w-1/2 relative bg-slate-950">
         <img 
           src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80" 
           alt="Cachorro Beagle" 
@@ -20,7 +20,7 @@ import { AuthService } from '../../core/services/auth.service';
         />
         <!-- Degradado oscuro inferior para que el texto blanco resalte -->
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-12">
-          <h2 class="text-white text-4xl font-bold leading-tight drop-shadow-md">
+          <h2 class="text-white text-4xl font-extrabold leading-tight drop-shadow-md">
             Todo el cuidado de tu mascota en un solo lugar
           </h2>
         </div>
@@ -33,17 +33,18 @@ import { AuthService } from '../../core/services/auth.service';
           <!-- Logotipo PeludOS -->
           <div class="text-center">
             <div class="flex items-center justify-center gap-3 mb-2">
-              <!-- Icono SVG de Huella con ventana OS -->
-              <svg class="w-16 h-16 text-purple-600" viewBox="0 0 64 64" fill="currentColor">
-                <circle cx="14" cy="24" r="5.5"/>
-                <circle cx="25" cy="14" r="6"/>
-                <circle cx="39" cy="14" r="6"/>
-                <circle cx="50" cy="24" r="5.5"/>
-                <path d="M32 25c-9.5 0-17 7.5-17 16.5 0 5.5 4 9.5 9.5 9.5 2.5 0 5-1 7.5-1s5 1 7.5 1c5.5 0 9.5-4 9.5-9.5C49 32.5 41.5 25 32 25zm-1 18h-6v-6h6v6zm0-8h-6v-6h6v6zm8 8h-6v-6h6v6zm0-8h-6v-6h6v6z"/>
-              </svg>
-              <span class="text-4xl font-extrabold text-purple-600 tracking-tight">PeludOS</span>
+              <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center border border-[#DDD6FE] shadow-xs">
+                <svg class="w-10 h-10 text-[#9C27B0]" viewBox="0 0 64 64" fill="currentColor">
+                  <circle cx="14" cy="24" r="5.5"/>
+                  <circle cx="25" cy="14" r="6"/>
+                  <circle cx="39" cy="14" r="6"/>
+                  <circle cx="50" cy="24" r="5.5"/>
+                  <path d="M32 25c-9.5 0-17 7.5-17 16.5 0 5.5 4 9.5 9.5 9.5 2.5 0 5-1 7.5-1s5 1 7.5 1c5.5 0 9.5-4 9.5-9.5C49 32.5 41.5 25 32 25zm-1 18h-6v-6h6v6zm0-8h-6v-6h6v6zm8 8h-6v-6h6v6zm0-8h-6v-6h6v6z"/>
+                </svg>
+              </div>
+              <span class="text-4xl font-extrabold text-slate-950 tracking-tight">Pelud<span class="text-[#9C27B0]">OS</span></span>
             </div>
-            <p class="text-slate-600 text-lg">Ingresa a tu cuenta para cuidar a tu mascota</p>
+            <p class="text-slate-700 text-lg font-medium">Ingresa a tu cuenta para cuidar a tu mascota</p>
           </div>
 
           <!-- Formulario -->
@@ -51,7 +52,7 @@ import { AuthService } from '../../core/services/auth.service';
             
             <!-- Campo Correo Electrónico -->
             <div>
-              <label class="block text-sm font-semibold text-slate-700 mb-1.5">Correo electrónico</label>
+              <label class="block text-sm font-bold text-slate-900 mb-1.5">Correo electrónico</label>
               <div class="relative">
                 <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -63,7 +64,7 @@ import { AuthService } from '../../core/services/auth.service';
                   [(ngModel)]="email" 
                   name="email" 
                   required 
-                  class="w-full pl-11 pr-4 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-700 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition" 
+                  class="w-full pl-11 pr-4 py-2.5 bg-white border border-[#DDD6FE] rounded-xl text-slate-900 focus:ring-2 focus:ring-[#9C27B0]/20 focus:border-[#9C27B0] outline-none transition" 
                   placeholder="Correo electrónico"
                 />
               </div>
@@ -71,7 +72,7 @@ import { AuthService } from '../../core/services/auth.service';
 
             <!-- Campo Contraseña -->
             <div>
-              <label class="block text-sm font-semibold text-slate-700 mb-1.5">Contraseña</label>
+              <label class="block text-sm font-bold text-slate-900 mb-1.5">Contraseña</label>
               <div class="relative">
                 <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,14 +84,14 @@ import { AuthService } from '../../core/services/auth.service';
                   [(ngModel)]="password" 
                   name="password" 
                   required 
-                  class="w-full pl-11 pr-11 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-700 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition" 
+                  class="w-full pl-11 pr-11 py-2.5 bg-white border border-[#DDD6FE] rounded-xl text-slate-900 focus:ring-2 focus:ring-[#9C27B0]/20 focus:border-[#9C27B0] outline-none transition" 
                   placeholder="Contraseña"
                 />
                 <!-- Botón Ojito para mostrar/ocultar contraseña -->
                 <button 
                   type="button" 
                   (click)="showPassword = !showPassword" 
-                  class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600"
+                  class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 cursor-pointer"
                 >
                   <svg *ngIf="!showPassword" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
@@ -105,20 +106,20 @@ import { AuthService } from '../../core/services/auth.service';
 
             <!-- Recordarme y Olvidaste contraseña -->
             <div class="flex items-center justify-between text-sm">
-              <label class="flex items-center gap-2 text-slate-600 cursor-pointer">
-                <input type="checkbox" class="rounded border-slate-300 text-purple-600 focus:ring-purple-500"/>
+              <label class="flex items-center gap-2 text-slate-700 cursor-pointer font-medium">
+                <input type="checkbox" class="rounded border-[#C4B5FD] text-[#9C27B0] focus:ring-[#9C27B0]"/>
                 <span>Recordarme</span>
               </label>
-              <a routerLink="/forgot-password" class="text-purple-600 hover:underline font-medium">¿Olvidaste tu contraseña?</a>
+              <a routerLink="/forgot-password" class="text-[#9C27B0] hover:underline font-bold">¿Olvidaste tu contraseña?</a>
             </div>
 
             <!-- Mensaje de Error -->
-            <p *ngIf="error" class="text-red-600 text-sm text-center bg-red-50 py-2 rounded-lg border border-red-200">{{ error }}</p>
+            <p *ngIf="error" class="text-pink-800 text-sm text-center bg-pink-50 py-2 rounded-xl border border-pink-200">{{ error }}</p>
 
             <!-- Botón Principal -->
             <button 
               type="submit" 
-              class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2.5 rounded-lg shadow-md transition duration-200 cursor-pointer"
+              class="w-full bg-[#9C27B0] hover:bg-[#7B1FA2] text-white font-bold py-2.5 rounded-xl shadow-xs transition duration-200 cursor-pointer"
             >
               Iniciar Sesión
             </button>
@@ -126,15 +127,16 @@ import { AuthService } from '../../core/services/auth.service';
 
           <!-- Separador -->
           <div class="relative flex py-1 items-center">
-            <div class="flex-grow border-t border-slate-300"></div>
-            <span class="flex-shrink mx-4 text-slate-400 text-xs">o continúa con</span>
-            <div class="flex-grow border-t border-slate-300"></div>
+            <div class="flex-grow border-t border-[#DDD6FE]"></div>
+            <span class="flex-shrink mx-4 text-slate-500 text-xs font-medium">o continúa con</span>
+            <div class="flex-grow border-t border-[#DDD6FE]"></div>
           </div>
 
           <!-- Botón Google -->
           <button 
             type="button" 
-            class="w-full bg-white hover:bg-slate-50 text-slate-700 font-medium py-2.5 px-4 border border-slate-300 rounded-lg shadow-xs flex items-center justify-center gap-3 transition cursor-pointer"
+            (click)="loginWithGoogle()"
+            class="w-full bg-white hover:bg-[#F3E8FF] text-slate-900 font-bold py-2.5 px-4 border border-[#DDD6FE] rounded-xl shadow-2xs flex items-center justify-center gap-3 transition cursor-pointer"
           >
             <svg class="w-5 h-5" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
@@ -146,8 +148,8 @@ import { AuthService } from '../../core/services/auth.service';
           </button>
 
           <!-- Enlace de Registro -->
-          <p class="text-center text-sm text-slate-600">
-            ¿No tienes cuenta? <a routerLink="/register" class="text-purple-600 font-semibold hover:underline">Regístrate aquí</a>
+          <p class="text-center text-sm text-slate-700 font-medium">
+            ¿No tienes cuenta? <a routerLink="/register" class="text-[#9C27B0] font-bold hover:underline">Regístrate aquí</a>
           </p>
 
         </div>
@@ -176,5 +178,9 @@ export class LoginComponent {
         this.error = 'Credenciales incorrectas o servidor no disponible.';
       }
     });
+  }
+
+  loginWithGoogle() {
+    this.auth.loginWithGoogle();
   }
 }
