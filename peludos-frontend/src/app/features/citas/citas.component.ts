@@ -72,7 +72,10 @@ import { MascotaService } from '../../core/services/mascota.service';
                 <option [ngValue]="null" disabled>Selecciona un profesional...</option>
                 <option *ngFor="let p of profesionalesFiltrados()" [ngValue]="p.id_profesional">
                   {{ p.nombre || p.especialidad || 'Profesional #' + p.id_profesional }}
+                </option><option *ngFor="let p of profesionalesFiltrados()" [ngValue]="p.id_profesional">
+                 {{ p.nombre_completo }} ({{ p.especialidad }})
                 </option>
+
               </select>
             </div>
 
@@ -257,7 +260,8 @@ export class CitasComponent implements OnInit {
 
 
   nombreProfesional(id: number): string {
-    const prof = this.profesionales().find(p => p.id_profesional === id);
-    return prof?.nombre || prof?.especialidad || 'Profesional #' + id;
+  const prof = this.profesionales().find(p => p.id_profesional === id);
+  return prof ? `${prof.nombre_completo} (${prof.especialidad})` : 'Profesional #' + id;
   }
+
 }

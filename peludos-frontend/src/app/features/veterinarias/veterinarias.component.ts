@@ -73,9 +73,10 @@ import { CitaService } from '../../core/services/cita.service';
                 <p class="text-[11px] font-extrabold uppercase tracking-wider text-slate-500 mb-2">Especialistas</p>
                 <div class="flex flex-wrap gap-1.5">
                   <span *ngFor="let p of profesionalesDe(v.id_veterinaria)"
-                    class="bg-[#FAF8FF] border border-[#DDD6FE] text-slate-800 text-xs font-medium px-2.5 py-1 rounded-lg">
-                    🩺 {{ p.especialidad || 'Veterinario #' + p.id_profesional }}
+                     class="bg-[#FAF8FF] border border-[#DDD6FE] text-slate-800 text-xs font-medium px-2.5 py-1 rounded-lg">
+                     🩺 {{ p.nombre_completo }} — {{ p.especialidad }}
                   </span>
+
                 </div>
               </div>
             </div>

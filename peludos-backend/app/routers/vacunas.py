@@ -105,11 +105,9 @@ def update_vacuna_existente(
 @router.delete("/{id_vacuna}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_vacuna_existente(
     id_vacuna: int,
-    usuario_admin: Usuario = Depends(get_current_admin),
+    usuario_actual: Usuario = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    """Elimina físicamente una vacuna. Solo administradores (corrección de errores de captura)."""
-    vacuna = get_vacuna_by_id(db, id_vacuna)
-    if not vacuna:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Vacuna no encontrada")
+    """Elimina físicamente una vacuna (dueño de la mascota o admin)."""
+    vacuna = _obtener_vacuna_autorizada(db, id_vacuna, usuario_actual)
     eliminar_vacuna(db, vacuna)

@@ -15,6 +15,11 @@ export class HistorialService {
     return this.http.post<any>(this.baseUrl + '/vacunas', data);
   }
 
+  eliminarVacuna(idVacuna: number) {
+    return this.http.delete(this.baseUrl + '/vacunas/' + idVacuna);
+  }
+
+
   getMedicamentos(idMascota: number) {
     return this.http.get<any[]>(this.baseUrl + '/medicamentos?id_mascota=' + idMascota);
   }
